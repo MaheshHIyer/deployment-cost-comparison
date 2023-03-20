@@ -35,7 +35,7 @@ resource "local_file" "kubeconfig" {
   filename = "kubeconfig_${local.cluster_name}"
 }
 
-module "vpc" {
+/*module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "3.18.1"
 
@@ -57,7 +57,7 @@ module "vpc" {
     "kubernetes.io/cluster/${local.cluster_name}" = "shared"
     "kubernetes.io/role/internal-elb"             = "1"
   }
-}
+}*/
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
@@ -65,9 +65,9 @@ module "eks" {
 
   cluster_name    = local.cluster_name
   cluster_version = "1.24"
-  subnet_ids      = module.vpc.private_subnets
+  #subnet_ids      = module.vpc.private_subnets
 
-  vpc_id = module.vpc.vpc_id
+  #vpc_id = module.vpc.vpc_id
 
   eks_managed_node_groups = {
     Apps = {
