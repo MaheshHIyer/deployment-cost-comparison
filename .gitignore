@@ -1,0 +1,6 @@
+./single-cluster-multiple-node-groups/gcp/.terraform/*
+./single-cluster-multiple-node-groups/aws/.terraform/*
+
+./single-cluster-multiple-node-groups/.infracost/*
+**/.DS_Store
+**/manifest*.json
